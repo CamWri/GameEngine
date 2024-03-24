@@ -53,8 +53,12 @@ class GameObject{
       return Engine.currentScene.gameObjects.filter(go => go.tag == gameObjectName)
     }
 
-    static instantiate(gameObject){
+    static instantiate(gameObject, x = 0, y = 0, scaleX = 1, scaleY = 1){
       Engine.currentScene.gameObjects.push(gameObject)
+      gameObject.transform.x = x
+      gameObject.transform.y = y
+      //gameObject.transofrm.scaleX = scaleX
+      //gameObject.transofrm.scaleY = scaleY
     }
 
     static destroy(gameObject){

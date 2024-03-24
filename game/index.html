@@ -29,39 +29,41 @@
         /*
         TODO:
 
+        Fix GetDoorCordinates, door colors are the same for each door, even though they shouldn't be and I don't know why
+
+        Implement new architecture of EventSystem handiling, look at github for example
+
+        Fix door and character collision so that the door is the entire length and not just the center
+
         Fix bug where if you fire and hit an enemy and dont fire another bullet, the enemy is still red and the hit detection 
             is inconsistant
 
-        Implement a door player collision to send you to the next room
-            Ask how circle-rectangle collisions happen or a way to do an alternative version of it
-
         Implement the new way of movement not being related to frames, look at example from class
-        
-        Might be able to use circle circle collision with an invisible circular wall around the chaser and if character is 
-        colliding with invisible wall, it chases character for a period of time, if it is within a bigger radius, 
-        it moves in you general direction, else, it moves randomly
 
         List of possible enemies
             Dweller
                 Stays undergroup and pops up randonly, does some sort of attack, and then dives back down and 
                 randomly picks a new spot
-            Trapper
+            Trapper(Next)
                 Puts down mine like things and when hit deal massive damage
             Chaser(Complete)
                 Psuedo randomly movement to chase the enemey
             Dasher(Complete)
                 Waits until in los and dashes out to get the character, then retrets back to the wall, if not attacking,
                 it moves up and down one side of the wall
-            Tank
+            Tank(Partial, still need to do attack)
                 Big, slow, melee character, hits the ground and causes a circle of damage 
             Posioner/Plauge Doctor
-                Poisoner
-            Artillery
+                Poisoner/Leaves puddles of acid on the ground
+            Artillery(Next)
                 Shoots bullets/heavy bombs/lasters     
             Necromancer/Summoner(Boss)
                 Heals itself based on the number of minions it has/if a minion its the character
             Multiplyer
                 Walks diagnoly, bounces off walls, and once destroyed, two smaller versions of the enemy spawn
+            Charger
+                Speed starts slow and ramps up until going fast chasing you, then takes a 5 second brake to then start slowly 
+                walking again
 
 
 

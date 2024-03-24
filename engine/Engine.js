@@ -21,7 +21,7 @@ class Engine{
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
 
-        Engine.currentScene.start(ctx)
+        Engine.currentScene._start(ctx)
 
         Engine.currentScene.update(ctx)
 

@@ -3,10 +3,10 @@ class ChaserMovementComponent extends Component{
         super()
         this.time = 201
         this.moveVertically = false
+        this.characterObject = Engine.currentScene.gameObjects.find(go=>go.name == "CharacterGameObject")
     }
 
     start(){
-        this.characterObject = Engine.currentScene.gameObjects.find(go=>go.name == "CharacterGameObject")
     }
 
     update(){

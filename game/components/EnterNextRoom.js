@@ -1,30 +1,24 @@
 class EnterNextRoom extends Component{
-    constructor(){
+    constructor(centerX, centerY, XFloorCord, YFloorCord){
         super()
-    }
-
-    start(){
-        let floorLayoutObect = Engine.currentScene.gameObjects.find(go=>go.name == "Floor Layout")
-        this.floorLayoutComponent = floorLayoutObect.components.find(go=>go.constructor.name == "CreateFloorComponent")
-        this.characterObject = Engine.currentScene.gameObjects.find(go=>go.name == "CharacterGameObject")
+        this.centerX = centerX
+        this.centerY = centerY
+        this.XFloorCord = XFloorCord
+        this.YFloorCord = YFloorCord
     }
 
 
     update(){
-        if(this.floorLayoutComponent.floorLayout[this.floorLayoutComponent.currentYCord + 1][this.floorLayoutComponent.currentXCord] == 1){
-            //Do specific collisions for the door below 
-        }
-        
-        if(this.floorLayoutComponent.floorLayout[this.floorLayoutComponent.currentYCord - 1][this.floorLayoutComponent.currentXCord] == 1){
-            //Do specific collisions for the door above
-        }
-        
-        if(this.floorLayoutComponent.floorLayout[this.floorLayoutComponent.currentYCord][this.floorLayoutComponent.currentXCord + 1] == 1){
-            //Do specific collisions for the door to the right
-        }
-        
-        if(this.floorLayoutComponent.floorLayout[this.floorLayoutComponent.currentYCord][this.floorLayoutComponent.currentXCord - 1] == 1){
-            //Do specific collisions for the door to the left
+        this.characterObject = Engine.currentScene.gameObjects.find(go=>go.name == "CharacterGameObject")
+        this.floorLayoutComponent = Globals.floorLayoutObect.components.find(go=>go.constructor.name == "CreateFloorComponent")
+
+        let collision = Collisions.isPointCircleCollision({x:this.centerX, y:this.centerY}, {x:this.characterObject.transform.x, y:this.characterObject.transform.y}, 10)
+
+        if(collision){
+            this.floorLayoutComponent.currentYCord += this.YFloorCord
+            this.floorLayoutComponent.currentXCord += this.XFloorCord
+
+            Engine.currentScene = new RoomScene()
         }
     }
 }

@@ -4,11 +4,8 @@ class CharacterMovementComponent extends Component{
         this.cooldown = 1001
     }
 
-    start(){
-        this.speed = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").speed
-    }
-
     update(ctx){
+        this.speed = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").speed
         if (Input.keysDown.includes("ArrowLeft")){
             if(Input.keysDown.includes("Space") && this.cooldown > 1000){
                 this.cooldown = 0
@@ -53,7 +50,7 @@ class CharacterMovementComponent extends Component{
                     this.transform.y = window.innerHeight - 120
                 }
             } else if(!Collisions.isCircleInsideRectangleCollisionBottom(window.innerHeight - 120, this.transform.y)){
-                this.transform.y += this.transform.downSpeed / Time.fps
+                this.transform.y += this.speed / Time.fps
             }
         }
         this.cooldown += Time.ms

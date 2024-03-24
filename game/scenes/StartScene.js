@@ -4,7 +4,9 @@ import "/game/components/CharacterStatsComponent.js"
 class StartScene extends Scene{
     constructor(){
         super("black")
+    }
 
+    start(){
         Globals.floorLayoutObect = new GameObject("Floor Layout")
         Globals.floorLayoutObect.addComponent(new CreateFloorComponent())
         this.gameObjects.push(Globals.floorLayoutObect)

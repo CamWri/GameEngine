@@ -6,8 +6,6 @@ class StartGameComponent extends Component{
     update(ctx){
         if (Input.keysDown.includes("Space")){
             Engine.currentScene = new RoomScene()
-            console.log(Globals.floorLayoutObect)
-
         }
     }
 }

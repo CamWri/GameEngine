@@ -1,14 +1,14 @@
-class DasherMovementComponentLeft extends Component{
+class DasherLeftMovementComponent extends Component{
     constructor(){
         super()
         this.attack = false
         this.attackCooldown = 3000
         this.horzMovement = 0
         this.vertMovement = 1
+        this.characterObject = Engine.currentScene.gameObjects.find(go=>go.name == "CharacterGameObject")
     }
 
     start(){
-        this.characterObject = Engine.currentScene.gameObjects.find(go=>go.name == "CharacterGameObject")
     }
 
     update(){
@@ -60,6 +60,6 @@ class DasherMovementComponentLeft extends Component{
         this.attackCooldown += Time.ms
     }
 }
-
-window.DasherMovementComponentLeft = DasherMovementComponentLeft
-export default DasherMovementComponentLeft
+    
+    window.DasherLeftMovementComponent = DasherLeftMovementComponent
+    export default DasherLeftMovementComponent

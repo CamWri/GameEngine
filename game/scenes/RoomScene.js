@@ -7,97 +7,64 @@ import "/game/components/ChaserMovementComponent.js"
 import "/game/components/CreateBulletComponent.js"
 import "/game/components/CreateFloorComponent.js"
 import "/game/components/CreateRoomComponent.js"
-import "/game/components/DasherMovementComponentLeft.js"
-import "/game/components/DasherMovementComponentRight.js"
+import "/game/components/DasherLeftMovementComponent.js"
+import "/game/components/DasherRightMovementComponent.js"
 import "/game/components/EnemeyHealthComponent.js"
 import "/game/components/EnterNextRoom.js"
 import "/game/components/GetDoorCordinatesComponent.js"
+import "/game/components/TankMovementComponent.js"
 import "/game/components/UpdateScoreComponent.js"
+
+import "/game/prefabs/BulletGameObject.js"
+import "/game/prefabs/CharacterGameObject.js"
+import "/game/prefabs/ChaserGameObject.js"
+import "/game/prefabs/DasherGameObject.js"
+import "/game/prefabs/DasherLeftGameObject.js"
+import "/game/prefabs/DasherRightGameObject.js"
+import "/game/prefabs/EndingRoomGameObject.js"
+import "/game/prefabs/ItemRoomDoorGameObject.js"
+import "/game/prefabs/LifeGameObject.js"
+import "/game/prefabs/RegularDoorGameObject.js"
+import "/game/prefabs/StartingRoomDoorGameObject.js"
+import "/game/prefabs/TankGameObject.js"
+
 
 
 
 class RoomScene extends Scene {
     constructor() {
         super("black")
+    }
 
+    start(ctx){
         let scoreObject = new GameObject("scoreObject")
         scoreObject.addComponent(new UpdateScoreComponent())
-        this.gameObjects.push(scoreObject)
+        GameObject.instantiate(scoreObject)
 
         let roomGameObject = new GameObject("RoomGameObject")
         roomGameObject.addComponent(new CreateRoomComponent())
-        this.gameObjects.push(roomGameObject)
+        GameObject.instantiate(roomGameObject)
 
-        
-        let doorGameObject = new GameObject("DoorGameObject")
-        doorGameObject.addComponent(new GetDoorCordinatesComponent())
-        this.gameObjects.push(doorGameObject)
+        let doorControlerGameObject = new GameObject("DoorGameObject")
+        doorControlerGameObject.addComponent(new GetDoorCordinatesComponent())
+        GameObject.instantiate(doorControlerGameObject)
 
-        let characterGameObject = new GameObject("CharacterGameObject")
-        characterGameObject.transform.x = window.innerWidth/2
-        characterGameObject.transform.y = window.innerHeight/2
-        //Maybe change speed to horizontal and vertical, use negatives for decreasing x and y
-        characterGameObject.transform.upSpeed = 200
-        characterGameObject.transform.downSpeed = 200
-        characterGameObject.transform.leftSpeed = 200
-        characterGameObject.transform.rightSpeed = 200
-        
-        characterGameObject.addComponent(new Circle("green", "purple", 20, 5))//Create the circle component of this object
-        characterGameObject.addComponent(new CharacterMovementComponent())//This is the movement
-        characterGameObject.addComponent(new CharacterEnemeyCollisionComponent())
-        characterGameObject.addComponent(new CreateBulletComponent())
-        this.gameObjects.push(characterGameObject)
+        GameObject.instantiate(new CharacterGameObject("CharacterGameObject"), window.innerWidth/2, window.innerHeight/2)
 
-        let chaserGameObject1 = new GameObject("Chaser1", "EnemeyGameObject")
-        chaserGameObject1.transform.x = 250
-        chaserGameObject1.transform.y = 250
-        chaserGameObject1.addComponent(new Circle("blue", "purple", 20, 5))//Create the circle component of this object
-        chaserGameObject1.addComponent(new ChaserMovementComponent())//Create the circle component of this object
-        chaserGameObject1.addComponent(new EnemeyHealthComponent(4, 250))
-        this.gameObjects.push(chaserGameObject1)
-
-        let chaserGameObject2 = new GameObject("Chaser2", "EnemeyGameObject")
-        chaserGameObject2.transform.x = 1250
-        chaserGameObject2.transform.y = 500
-        chaserGameObject2.addComponent(new Circle("blue", "purple", 20, 5))//Create the circle component of this object
-        chaserGameObject2.addComponent(new ChaserMovementComponent())//Create the circle component of this object
-        chaserGameObject2.addComponent(new EnemeyHealthComponent(4, 250))
-        this.gameObjects.push(chaserGameObject2)
-
-        let dasherGameObject1 = new GameObject("Dasher1", "EnemeyGameObject")
-        dasherGameObject1.transform.x = 165
-        dasherGameObject1.transform.y = 600
-        dasherGameObject1.addComponent(new Circle("yellow", "purple", 15, 0))//Create the circle component of this object
-        dasherGameObject1.addComponent(new DasherMovementComponentLeft())
-        dasherGameObject1.addComponent(new EnemeyHealthComponent(2, 500))
-        this.gameObjects.push(dasherGameObject1)
-
-        let dasherGameObject2 = new GameObject("Dasher2", "EnemeyGameObject")
-        dasherGameObject2.transform.x = window.innerWidth - 165
-        dasherGameObject2.transform.y = 300
-        dasherGameObject2.addComponent(new Circle("yellow", "purple", 15, 0))//Create the circle component of this object
-        dasherGameObject2.addComponent(new DasherMovementComponentRight())
-        dasherGameObject2.addComponent(new EnemeyHealthComponent(2, 500))
-        this.gameObjects.push(dasherGameObject2)
-        
-        let lifeGameObject1 = new GameObject("lifeGameObject1", "LifeGameObject")
-        lifeGameObject1.transform.x = 170
-        lifeGameObject1.transform.y = 50
-        lifeGameObject1.addComponent(new Circle("red", "white", 20, 1))//Create the circle component of this object
-        this.gameObjects.push(lifeGameObject1)
-
-        let lifeGameObject2 = new GameObject("lifeGameObject2", "LifeGameObject")
-        lifeGameObject2.transform.x = 110
-        lifeGameObject2.transform.y = 50
-        lifeGameObject2.addComponent(new Circle("red", "white", 20, 1))//Create the circle component of this object
-        this.gameObjects.push(lifeGameObject2)
+        //GameObject.instantiate(new BulletGameObject("BulletGameObject", 1), 200, 700)
 
 
-        let lifeGameObject3 = new GameObject("lifeGameObject3", "LifeGameObject")
-        lifeGameObject3.transform.x = 50
-        lifeGameObject3.transform.y = 50
-        lifeGameObject3.addComponent(new Circle("red", "white", 20, 1))//Create the circle component of this object
-        this.gameObjects.push(lifeGameObject3)
+        GameObject.instantiate(new LifeGameObject("lifeGameObject1", "LifeGameObject"), 170, 50)
+        GameObject.instantiate(new LifeGameObject("lifeGameObject2", "LifeGameObject"), 110, 50)
+        GameObject.instantiate(new LifeGameObject("lifeGameObject3", "LifeGameObject"), 50, 50)
+
+        //GameObject.instantiate(new ChaserGameObject("Chaser1", "EnemeyGameObject"), 250, 250)
+        //GameObject.instantiate(new ChaserGameObject("Chaser2", "EnemeyGameObject"), 1250, 500)
+
+        //GameObject.instantiate(new DasherLeftGameObject("Dasher1", "EnemeyGameObject"), 165, 600)
+        //GameObject.instantiate(new DasherRightGameObject("Dasher2", "EnemeyGameObject"), window.innerWidth - 165, 300)
+
+        //GameObject.instantiate(new TankGameObject("Tank1", "EnemeyGameObject"), 700, 200)   
     }
 }
 

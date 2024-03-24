@@ -6,7 +6,7 @@ class CharacterEnemeyCollisionComponent extends Component{
     }
 
     start(){
-        this.health = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").health
+        this.health = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").currentHealth
     }
 
     update(ctx){

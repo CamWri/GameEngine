@@ -1,7 +1,8 @@
 class CharacterStatsComponent extends Component{
     constructor(){
         super()
-        this.health = 3
+        this.maxHealth = 3
+        this.currentHealth = 3
         this.damage = 1
         this.range = 2000
         this.rateOfFire = 500

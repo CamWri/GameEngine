@@ -11,10 +11,6 @@ class BulletEnemeyCollisionComponent extends Component{
         //  Is that because it is not a component of the scene to being with so start does nothing.
         this.charDamage = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").damage
 
-
-        console.log(this.charDamage)
-
-
         for(let i = 0; i < enemeylist.length; i++){
             let enemeyCircleConstructor = enemeylist[i].components.find(go=>go.constructor.name == "Circle")
             let enemeyHealthConstructor = enemeylist[i].components.find(go=>go.constructor.name == "EnemeyHealthComponent")
