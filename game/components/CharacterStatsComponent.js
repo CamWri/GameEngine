@@ -8,6 +8,8 @@ class CharacterStatsComponent extends Component{
         this.rateOfFire = 500
         this.bulletSpeed = 300
         this.speed = 200
+        this.startingXCord = window.innerWidth/2
+        this.startingYCord = window.innerHeight/2
     }
 }
 

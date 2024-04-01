@@ -8,7 +8,7 @@ class RegularDoorGameObejct extends GameObject{
     }
 
     start(){
-        doorGameObject1.addComponent(new Rectangle("darkgoldenrod", "black", 80, 30))
+        this.addComponent(new Rectangle("darkgoldenrod", "black", 80, 30))
         this.addComponent(new EnterNextRoom(this.xCord, this.yCord, this.xPosition, this.yPosition))
     }
 }

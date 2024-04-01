@@ -5,15 +5,14 @@ class CharacterEnemeyCollisionComponent extends Component{
         this.time = 0
     }
 
-    start(){
-        this.health = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").currentHealth
-    }
-
     update(ctx){
         let enemeylist = Engine.currentScene.gameObjects.filter(go=>go.tag == "EnemeyGameObject")
+        let letEmptyHealthCount = 1
 
         for(let i = 0; i < enemeylist.length; i++){
-            let collision = Collisions.isCircleCircleCollision({x:this.transform.x, y:this.transform.y}, {x:enemeylist[i].transform.x, y:enemeylist[i].transform.y}, 25, 25)
+            let enemeyRadius = enemeylist[i].components.find(go => go.constructor.name == "Circle").radius
+
+            let collision = Collisions.isCircleCircleCollision({x:this.transform.x, y:this.transform.y}, {x:enemeylist[i].transform.x, y:enemeylist[i].transform.y}, 25, enemeyRadius)
 
             if(collision){
                 if(!this.hit){
@@ -22,9 +21,15 @@ class CharacterEnemeyCollisionComponent extends Component{
                         GameObject.destroy(gameObject)
                         this.hit = true
                         this.time = 0
-                        this.health -= 1
+                        Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").currentHealth -= 1
+
+                        let emptyhealthComponent = new GameObject("EmptyHealth" + letEmptyHealthCount, "LifeGameObject")
+                        emptyhealthComponent.transform.x = gameObject.transform.x
+                        emptyhealthComponent.transform.y = 50
+                        emptyhealthComponent.addComponent(new Circle("white", "white", 20, 1))//Create the circle component of this object
+                        Engine.currentScene.gameObjects.push(emptyhealthComponent)
                     }
-                    if(this.health == 0){
+                    if(Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").currentHealth == 0){
                         Engine.currentScene = new DeathScene()
                     }
     

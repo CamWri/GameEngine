@@ -5,10 +5,7 @@ class Circle extends Component{
         this.stroke = stroke
         this.radius = radius
         this.outlineWitdth = outlineWitdth
-    }
-
-    start(){
-        this.originalfill = this.fill
+        this.originalfill = fill
     }
 
     draw(ctx){

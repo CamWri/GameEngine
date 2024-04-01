@@ -27,44 +27,35 @@
         Engine.setUp()
 
         /*
+        Questions:
+            Explain my idea for a tank enemey, and how dyanamically draw something based off of time
+                Alernative - I have 3/4 premade gameobjects that are called whenever the character gets to close
+            
+            How to stop something from being drawn and/or adjust the draw function to either make it bigger, smaller, 
+                or dissapear for my dweller enemey concept
+
         TODO:
-
-        Fix GetDoorCordinates, door colors are the same for each door, even though they shouldn't be and I don't know why
-
-        Implement new architecture of EventSystem handiling, look at github for example
-
-        Fix door and character collision so that the door is the entire length and not just the center
-
-        Fix bug where if you fire and hit an enemy and dont fire another bullet, the enemy is still red and the hit detection 
-            is inconsistant
-
-        Implement the new way of movement not being related to frames, look at example from class
-
         List of possible enemies
             Dweller
                 Stays undergroup and pops up randonly, does some sort of attack, and then dives back down and 
-                randomly picks a new spot
-            Trapper(Next)
-                Puts down mine like things and when hit deal massive damage
+                randomly picks a new spot   
+        
+        Completed Enemies:
+            Charger(Complete)
+                Speed starts slow and ramps up until going fast chasing you, then takes a 5 second brake to then repeat
             Chaser(Complete)
                 Psuedo randomly movement to chase the enemey
             Dasher(Complete)
-                Waits until in los and dashes out to get the character, then retrets back to the wall, if not attacking,
-                it moves up and down one side of the wall
+                Waits until in is in LOS and dashes out to get the character, then retrets back to the wall, if not attacking,
+                it moves against the wall   
+            Acid Shooter(Complete)
+                Poisoner leaves puddles of acid on the ground at the end of the shot
+            
+        Partial Completed Enemies:
             Tank(Partial, still need to do attack)
-                Big, slow, melee character, hits the ground and causes a circle of damage 
-            Posioner/Plauge Doctor
-                Poisoner/Leaves puddles of acid on the ground
+                Big, slow, close range character, hits the ground and causes a circle of damage 
             Artillery(Next)
-                Shoots bullets/heavy bombs/lasters     
-            Necromancer/Summoner(Boss)
-                Heals itself based on the number of minions it has/if a minion its the character
-            Multiplyer
-                Walks diagnoly, bounces off walls, and once destroyed, two smaller versions of the enemy spawn
-            Charger
-                Speed starts slow and ramps up until going fast chasing you, then takes a 5 second brake to then start slowly 
-                walking again
-
+                Shoots bullets/heavy bombs/lasters  
 
 
         */

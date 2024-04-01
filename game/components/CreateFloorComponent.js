@@ -19,6 +19,7 @@ class CreateFloorComponent extends Component{
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+        this.hasVisited = new Set();
     }
 
     start(ctx){

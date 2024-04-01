@@ -15,11 +15,23 @@ class BulletEnemeyCollisionComponent extends Component{
             let enemeyCircleConstructor = enemeylist[i].components.find(go=>go.constructor.name == "Circle")
             let enemeyHealthConstructor = enemeylist[i].components.find(go=>go.constructor.name == "EnemeyHealthComponent")
 
+
             let collision = Collisions.isCircleCircleCollision({x:this.transform.x, y:this.transform.y}, {x:enemeylist[i].transform.x, y:enemeylist[i].transform.y}, 2, enemeyCircleConstructor.radius + enemeyCircleConstructor.outlineWitdth)
             if(collision){
-                GameObject.destroy(this.parent)
-                enemeyHealthConstructor.health -= this.charDamage
-                enemeyCircleConstructor.fill = "red"
+                if(enemeylist[i].name == "AcidShot"){
+                    GameObject.destroy(this.parent)
+                    GameObject.destroy(enemeylist[i])
+                }else if(enemeylist[i].name == "AcidPool"){
+                    GameObject.destroy(this.parent)
+                } else {
+                    GameObject.destroy(this.parent)
+                    enemeyHealthConstructor.health -= this.charDamage
+                    enemeyCircleConstructor.fill = "red"
+                }
+
+
+
+
             } else {
                 enemeyCircleConstructor.fill = enemeyCircleConstructor.originalfill
             }

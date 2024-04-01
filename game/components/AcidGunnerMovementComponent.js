@@ -1,4 +1,4 @@
-class ChaserMovementComponent extends Component{
+class AcidGunnerMovementComponent extends Component{
     constructor(){
         super()
         this.time = 201
@@ -10,7 +10,12 @@ class ChaserMovementComponent extends Component{
     }
 
     update(){
-        let speed = 150
+        let speed = 100
+
+        if(Math.abs(this.characterObject.transform.y - this.transform.y) < 10 || Math.abs(this.characterObject.transform.x - this.transform.x) < 10){
+            speed = 0
+        }
+
         if(this.time > 200){
             if(Math.random() > 0.5){
                 this.moveVertically = true
@@ -48,5 +53,5 @@ class ChaserMovementComponent extends Component{
     }
 }
 
-window.ChaserMovementComponent = ChaserMovementComponent
-export default ChaserMovementComponent
+window.AcidGunnerMovementComponent = AcidGunnerMovementComponent
+export default AcidGunnerMovementComponent

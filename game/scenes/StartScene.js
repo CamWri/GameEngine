@@ -11,9 +11,10 @@ class StartScene extends Scene{
         Globals.floorLayoutObect.addComponent(new CreateFloorComponent())
         this.gameObjects.push(Globals.floorLayoutObect)
 
+        console.log(Globals.floorLayoutObect)
+
         Globals.characterStats = new GameObject("Character Stats")
         Globals.characterStats.addComponent(new CharacterStatsComponent())
-
 
         Globals.score = 0
 

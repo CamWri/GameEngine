@@ -18,6 +18,25 @@ class Collisions{
         let distance = Math.sqrt((point.x-circleCenter.x) **2 + (point.y - circleCenter.y) ** 2)
         return distance < circleRadius
     }
+       
+    static isCircleLineCollision(point, circleCenter, circleRadius, pointBound, isHorizontal){
+        if(isHorizontal){
+            console.log("IsHorizontal")
+            if(circleCenter.x > pointBound.bottom && circleCenter.x < pointBound.top){
+                console.log("Inside x bounds")
+                let distance = Math.sqrt((point.y - circleCenter.y) ** 2)
+                return distance < circleRadius
+            }
+        } else if (!isHorizontal) {
+            console.log("IsVertical")
+            if(circleCenter.y > pointBound.bottom && circleCenter.y < pointBound.top){
+                console.log("Inside y bounds")
+                let distance = Math.sqrt((point.x - circleCenter.x) ** 2)
+                return distance < circleRadius
+            }
+        }
+        return false
+    }
 
     static isRectangleRectangleCollision(rectangleOneCenter,rectangleOneWidth, rectangleOneHeight, rectangleTwoCenter, rectangleTwoWidth, rectangleTwoHeight){
         if(

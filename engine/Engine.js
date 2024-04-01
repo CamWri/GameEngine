@@ -9,9 +9,15 @@ import "/engine/components/Text.js"
 import "/engine/components/Transform.js"
 
 import "/engine/static/Collisions.js"
+import "/engine/static/CollisionsGeometric.js"
 import "/engine/static/Input.js"
 import "/engine/static/Globals.js"
 import "/engine/static/Time.js"
+
+import "/engine/geometry/Vector2.js"
+import "/engine/geometry/Line2.js"
+import "/engine/geometry/Rectangle2.js"
+import "/engine/geometry/Circle2.js"
 
 class Engine{
     static gameLoop(){

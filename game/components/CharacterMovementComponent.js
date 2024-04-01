@@ -1,13 +1,13 @@
 class CharacterMovementComponent extends Component{
     constructor(){
         super();
-        this.cooldown = 1001
+        this.cooldown = 5001
     }
 
     update(ctx){
         this.speed = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").speed
         if (Input.keysDown.includes("ArrowLeft")){
-            if(Input.keysDown.includes("Space") && this.cooldown > 1000){
+            if(Input.keysDown.includes("Space") && this.cooldown > 5000){
                 this.cooldown = 0
                 this.transform.x -= 75
                 if(Collisions.isCircleInsideRectangleCollisionLeft(170, this.transform.x)){
@@ -19,7 +19,7 @@ class CharacterMovementComponent extends Component{
         }
 
         if (Input.keysDown.includes("ArrowRight")){
-            if(Input.keysDown.includes("Space") && this.cooldown > 1000){
+            if(Input.keysDown.includes("Space") && this.cooldown > 5000){
                 this.cooldown = 0
                 this.transform.x += 75
                 if(Collisions.isCircleInsideRectangleCollisionRight(window.innerWidth - 170, this.transform.x)){
@@ -31,7 +31,7 @@ class CharacterMovementComponent extends Component{
         }
 
         if (Input.keysDown.includes("ArrowUp")){
-            if(Input.keysDown.includes("Space") && this.cooldown > 1000){
+            if(Input.keysDown.includes("Space") && this.cooldown > 5000){
                 this.cooldown = 0
                 this.transform.y -= 75
                 if(Collisions.isCircleInsideRectangleCollisionTop(120, this.transform.y)){
@@ -43,7 +43,7 @@ class CharacterMovementComponent extends Component{
         }
 
         if (Input.keysDown.includes("ArrowDown")){
-            if(Input.keysDown.includes("Space") && this.cooldown > 1000){
+            if(Input.keysDown.includes("Space") && this.cooldown > 5000){
                 this.transform.y += 75
                 this.cooldown = 0
                 if(Collisions.isCircleInsideRectangleCollisionBottom(window.innerHeight - 120, this.transform.y)){
