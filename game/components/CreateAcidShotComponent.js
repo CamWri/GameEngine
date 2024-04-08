@@ -29,7 +29,7 @@ class CreateAcidShotComponent extends Component{
                     acidShotGameObjectVert.addComponent(new AcidShotMovementComponent(3))
                     GameObject.instantiate(acidShotGameObjectVert, this.transform.x, this.transform.y + 30)
                 }
-                if(this.characterObject.transform.x - this.transform.x < 0){
+                if(this.characterObject.transform.y - this.transform.y < 0){
                     acidShotGameObjectVert.addComponent(new AcidShotMovementComponent(1))
                     GameObject.instantiate(acidShotGameObjectVert, this.transform.x, this.transform.y - 30)
                 }

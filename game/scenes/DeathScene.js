@@ -4,7 +4,9 @@ import "/game/components/RestartGameComponent.js"
 class DeathScene extends Scene{
     constructor(){
         super("white")
+    }
 
+    start(){
         let ScoreTextObject= new GameObject("Score Game Text")
         ScoreTextObject.transform.x = window.innerWidth/4
         ScoreTextObject.transform.y = window.innerHeight/2

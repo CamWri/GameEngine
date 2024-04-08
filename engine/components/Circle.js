@@ -17,6 +17,10 @@ class Circle extends Component{
         ctx.fill()
         ctx.stroke()
     }
+
+    asGeometry(){
+        return new Circle2(this.transform.x, this.transform.y, this.transform.scaleX)
+    }
 }
 
 window.Circle = Circle

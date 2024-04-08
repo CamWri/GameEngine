@@ -14,7 +14,7 @@ class GetDoorCordinatesComponent extends Component{
                 let topDoorGameObject = new GameObject("Door")
                 topDoorGameObject.transform.x = window.innerWidth/2 - 40
                 topDoorGameObject.transform.y = 70
-                topDoorGameObject.addComponent(new EnterNextRoom(window.innerWidth/2, 110, floorXCord, floorYCord-1, window.innerWidth/2, window.innerHeight - 150))
+                topDoorGameObject.addComponent(new EnterNextRoom(window.innerWidth/2, 100, floorXCord, floorYCord-1, window.innerWidth/2, window.innerHeight - 130))
                 if(this.floorLayoutComponent.floorLayout[floorYCord - 1][floorXCord] == 1){
                     topDoorGameObject.addComponent(new Rectangle("darkgoldenrod", "black", 80, 30))
                     //GameObject.instantiate(new RegularDoorGameObejct("Door",window.innerWidth/2, 110, 0, -1 ), window.innerWidth/2 - 40, 70)
@@ -35,7 +35,7 @@ class GetDoorCordinatesComponent extends Component{
                 let bottomDoorGameObject = new GameObject("Door")
                 bottomDoorGameObject.transform.x = window.innerWidth/2 - 40
                 bottomDoorGameObject.transform.y = window.innerHeight - 100  
-                bottomDoorGameObject.addComponent(new EnterNextRoom(window.innerWidth/2, window.innerHeight - 110, floorXCord, floorYCord+1, window.innerWidth/2, 130))   
+                bottomDoorGameObject.addComponent(new EnterNextRoom(window.innerWidth/2, window.innerHeight - 100, floorXCord, floorYCord+1, window.innerWidth/2, 130))   
                 if(this.floorLayoutComponent.floorLayout[floorYCord + 1][floorXCord] == 1){
                     bottomDoorGameObject.addComponent(new Rectangle("darkgoldenrod", "black", 80, 30))
                     //GameObject.instantiate(new RegularDoorGameObejct("Door", window.innerWidth/2,window.innerHeight - 120, 0, 1), window.innerWidth/2 - 40, window.innerHeight - 100)
@@ -56,7 +56,7 @@ class GetDoorCordinatesComponent extends Component{
                 let leftDoorGameObject = new GameObject("Door")
                 leftDoorGameObject.transform.x = 120
                 leftDoorGameObject.transform.y = window.innerHeight/2 - 41
-                leftDoorGameObject.addComponent(new EnterNextRoom(160, window.innerHeight/2, floorXCord-1, floorYCord, window.innerWidth - 200 ,window.innerHeight/2))
+                leftDoorGameObject.addComponent(new EnterNextRoom(150, window.innerHeight/2, floorXCord-1, floorYCord, window.innerWidth - 180 ,window.innerHeight/2))
                 if(this.floorLayoutComponent.floorLayout[floorYCord][floorXCord - 1] == 1){
                     leftDoorGameObject.addComponent(new Rectangle("darkgoldenrod", "black", 30, 80))
                     //GameObject.instantiate(new RegularDoorGameObejct("Door", 160, window.innerHeight/2, -1, 0), 120, window.innerHeight/2 - 40)
@@ -77,7 +77,7 @@ class GetDoorCordinatesComponent extends Component{
                 let rightDoorGameObject = new GameObject("Door")
                 rightDoorGameObject.transform.x = window.innerWidth - 150
                 rightDoorGameObject.transform.y = window.innerHeight/2 - 40
-                rightDoorGameObject.addComponent(new EnterNextRoom(window.innerWidth - 170, window.innerHeight/2, floorXCord+1, floorYCord, 170 ,window.innerHeight/2))
+                rightDoorGameObject.addComponent(new EnterNextRoom(window.innerWidth - 160, window.innerHeight/2, floorXCord+1, floorYCord, 180 ,window.innerHeight/2))
                 if(this.floorLayoutComponent.floorLayout[floorYCord][floorXCord + 1] == 1){
                     rightDoorGameObject.addComponent(new Rectangle("darkgoldenrod", "black", 30, 80))
                     //GameObject.instantiate(new RegularDoorGameObejct("Door", window.innerWidth - 170, window.innerHeight/2, 1, 0), window.innerWidth - 150, window.innerHeight/2 - 40)

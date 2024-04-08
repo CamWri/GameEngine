@@ -1,12 +1,12 @@
 class AcidPoolDuractionComponent extends Component{
     constructor(){
         super()
-        this.duration = 0
+        this.duration = 0.0
     }
 
     update(){
 
-        if(this.duration > 3000){
+        if(this.duration > 2500){
             GameObject.destroy(this.parent)
         }
 

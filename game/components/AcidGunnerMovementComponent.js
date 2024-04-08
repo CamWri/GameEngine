@@ -24,7 +24,7 @@ class AcidGunnerMovementComponent extends Component{
             }
             this.time = 0
         }
-
+ 
         if(Math.random() > 0.5){
             if(this.characterObject.transform.y == this.transform.y){
                 this.moveVertically = false

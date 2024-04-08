@@ -23,6 +23,9 @@ class BulletEnemeyCollisionComponent extends Component{
                     GameObject.destroy(enemeylist[i])
                 }else if(enemeylist[i].name == "AcidPool"){
                     GameObject.destroy(this.parent)
+                } else if (enemeylist[i].name == "EnemyBulletGameObject"){
+                    GameObject.destroy(this.parent)
+                    GameObject.destroy(enemeylist[i])
                 } else {
                     GameObject.destroy(this.parent)
                     enemeyHealthConstructor.health -= this.charDamage

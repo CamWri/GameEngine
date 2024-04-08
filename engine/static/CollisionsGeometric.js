@@ -61,6 +61,33 @@ class CollisionsGeometric{
         let step3Result = CollisionsGeometric.isVector2Circle2Collision(infiniteLinePoint, circle2)
         return step3Result;
     }
+
+    static isCircle2Rectangle2Collision(circle2, rectangle2){
+        let center = new Vector2(circle2.centerX, circle2.centerY)
+        let total = CollisionsGeometric.isVector2Circle2Collision(center, rectangle2)
+        if(total){
+            return true;
+        }
+        let upperLeft = new Vector2(rectangle2.centerX - rectangle2.width/2, rectangle2.centerY - rectangle2.height/2 )
+        let lowerLeft = new Vector2(rectangle2.centerX - rectangle2.width/2, rectangle2.centerY + rectangle2.height/2 )
+        let lowerRight = new Vector2(rectangle2.centerX + rectangle2.width/2, rectangle2.centerY + rectangle2.height/2 )
+        let upperRight = new Vector2(rectangle2.centerX + rectangle2.width/2, rectangle2.centerY - rectangle2.height/2 )
+
+        let line1 = new Line2(upperLeft, lowerLeft)
+        let line2 = new Line2(upperLeft, lowerRight)
+        let line3 = new Line2(lowerRight, upperRight)
+        let line4 = new Line2(upperRight, upperLeft)
+
+        let lines = [line1, line2, line3, line4]
+
+        for(let line of lines){
+            if(CollisionsGeometric.isCircle2Line2Collision(circle2, line)){
+                return true;
+            }
+        }
+
+        return false
+    }
 }
 
 window.CollisionsGeometric = CollisionsGeometric

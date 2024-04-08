@@ -7,7 +7,6 @@ class TankGameObject extends GameObject{
         this.addComponent(new Circle("coral", "purple", 30, 5))//Create the circle component of this object
         this.addComponent(new TankMovementComponent())
         this.addComponent(new EnemeyHealthComponent(6, 750))
-        this.addComponent(new TankAttackControllerComponent(6, 750))
     }
 }
 

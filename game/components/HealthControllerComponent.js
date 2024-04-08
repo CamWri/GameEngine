@@ -3,13 +3,12 @@ class HealthControllerComponent extends Component{
         super()
     }
 
-    start(){
+    update(){
         this.maxHealth = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").maxHealth
         this.currentHealth = Globals.characterStats.components.find(go=>go.constructor.name == "CharacterStatsComponent").currentHealth
 
         let currentXCord = 50 + this.maxHealth * 60
         for(let i = this.currentHealth; i < this.maxHealth; i++){
-            console.log("Create empty health")
             let emptyhealthComponent = new GameObject("EmptyHealth" + i, "LifeGameObject")
             emptyhealthComponent.transform.x = currentXCord
             emptyhealthComponent.transform.y = 50

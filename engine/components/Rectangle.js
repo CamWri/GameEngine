@@ -5,10 +5,7 @@ class Rectangle extends Component{
         this.stroke = stroke
         this.width = width
         this.height = height
-    }
-
-    start(){
-        this.originalfill = this.fill
+        this.originalfill = fill
     }
 
     draw(ctx){
@@ -23,6 +20,10 @@ class Rectangle extends Component{
         )
         ctx.fill()
         ctx.stroke()
+    }
+
+    asGeometry(){
+        return new Rectangle2(this.transform.x, this.transform.y, this.transform.scaleX, this.transform.scaleY);
     }
 }
 

@@ -8,10 +8,10 @@ class AcidShotMovementComponent extends Component{
 
     update(){
         let characterAcidShotCollision = Collisions.isCircleCircleCollision({x: this.transform.x , y:this.transform.y}, {x: this.characterObject.transform.x, y: this.characterObject.transform.y}, 10, 25)
-        this.bulletSpeed = 150
+        this.bulletSpeed = 250
 
 
-        if(characterAcidShotCollision || this.bulletDuration > 2000){
+        if(characterAcidShotCollision || this.bulletDuration > 1000){
             let acidPoolGameObject = new GameObject("AcidPool", "EnemeyGameObject")
             acidPoolGameObject.addComponent(new Circle("limegreen", "lawngreen", 50, 1))
             acidPoolGameObject.addComponent(new AcidPoolDuractionComponent())
@@ -21,19 +21,19 @@ class AcidShotMovementComponent extends Component{
         }
 
         if(this.direction == 1){
-            if(!Collisions.isCircleInsideRectangleCollisionTop(105, this.transform.y) && this.bulletDuration < 2000){
+            if(!Collisions.isCircleInsideRectangleCollisionTop(105, this.transform.y) && this.bulletDuration < 1000){
                 this.transform.y -= this.bulletSpeed * Time.deltaTime
             }
         } else if (this.direction == 2){
-            if(!Collisions.isCircleInsideRectangleCollisionRight(window.innerWidth - 155, this.transform.x) && this.bulletDuration < 2000){
+            if(!Collisions.isCircleInsideRectangleCollisionRight(window.innerWidth - 155, this.transform.x) && this.bulletDuration < 1000){
                 this.transform.x += this.bulletSpeed * Time.deltaTime
             }
         } else if (this.direction == 3){
-            if(!Collisions.isCircleInsideRectangleCollisionBottom(window.innerHeight - 105, this.transform.y) && this.bulletDuration < 2000){
+            if(!Collisions.isCircleInsideRectangleCollisionBottom(window.innerHeight - 105, this.transform.y) && this.bulletDuration < 1000){
                 this.transform.y += this.bulletSpeed * Time.deltaTime
             }
         } else if (this.direction == 4){
-            if(!Collisions.isCircleInsideRectangleCollisionLeft(155, this.transform.x) && this.bulletDuration < 2000){
+            if(!Collisions.isCircleInsideRectangleCollisionLeft(155, this.transform.x) && this.bulletDuration < 1000){
                 this.transform.x -= this.bulletSpeed * Time.deltaTime
             }
         }

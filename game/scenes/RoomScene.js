@@ -1,19 +1,23 @@
 import "/game/components/AcidGunnerMovementComponent.js"
 import "/game/components/AcidPoolDuractionComponent.js"
 import "/game/components/AcidShotMovementComponent.js"
+import "/game/components/AssignRoomEnemiesComponent.js"
 import "/game/components/BulletEnemyCollisionComponent.js"
 import "/game/components/BulletMovementComponent.js"
 import "/game/components/CharacterEnemeyCollisionComponent.js"
+import "/game/components/CharacterItemCollisionComponent.js"
 import "/game/components/CharacterMovementComponent.js"
 import "/game/components/CharacterStatsComponent.js"
 import "/game/components/ChargerMovementComponent.js"
 import "/game/components/ChaserMovementComponent.js"
 import "/game/components/CreateAcidShotComponent.js"
 import "/game/components/CreateBulletComponent.js"
+import "/game/components/CreateEnemeyBulleteComponent.js"
 import "/game/components/CreateFloorComponent.js"
 import "/game/components/CreateRoomComponent.js"
 import "/game/components/DasherMovementComponent.js"
 import "/game/components/EnemeyHealthComponent.js"
+import "/game/components/EnemyBulletMovementComponent.js"
 import "/game/components/EnterNextRoom.js"
 import "/game/components/GetDoorCordinatesComponent.js"
 import "/game/components/HealthControllerComponent.js"
@@ -34,9 +38,8 @@ import "/game/prefabs/LifeGameObject.js"
 import "/game/prefabs/RegularDoorGameObject.js"
 import "/game/prefabs/StartingRoomDoorGameObject.js"
 import "/game/prefabs/TankGameObject.js"
-
-
-
+import "/game/prefabs/TurretGameObject.js"
+import "/game/prefabs/VeggieSmoothieItemGameObject.js"
 
 class RoomScene extends Scene {
     constructor() {
@@ -64,24 +67,11 @@ class RoomScene extends Scene {
 
 
         let enemeyControllerGameObject = new GameObject("EnemeyControllerGameObject")
+        enemeyControllerGameObject.addComponent(new AssignRoomEnemiesComponent())
+        GameObject.instantiate(enemeyControllerGameObject)  
 
-        GameObject.instantiate(enemeyControllerGameObject)
 
-        //GameObject.instantiate(new ChaserGameObject("Chaser1", "EnemeyGameObject"), 250, 250)
-        //GameObject.instantiate(new ChaserGameObject("Chaser2", "EnemeyGameObject"), 1250, 500)
-     
-        //GameObject.instantiate(new DasherGameObject("Dasher1", "EnemeyGameObject", "left"), 165, 300)
-        //GameObject.instantiate(new DasherGameObject("Dasher2", "EnemeyGameObject", "right"), window.innerWidth - 165, 600)
-        //GameObject.instantiate(new DasherGameObject("Dasher3", "EnemeyGameObject", "top"), 400, 120)
-        //GameObject.instantiate(new DasherGameObject("Dasher4", "EnemeyGameObject", "bottom"), 800, window.innerHeight - 120)
-
-        GameObject.instantiate(new AcidGunnerGameObject("AcidGunner1", "EnemeyGameObject"), 600, 600)
-
-        //GameObject.instantiate(new TankGameObject("Tank1", "EnemeyGameObject"), 700, 200)   
-        //GameObject.instantiate(new TankGameObject("Tank1", "EnemeyGameObject"), 500, 400) 
-        
-        //GameObject.instantiate(new ChargerGameObject("Charger1", "EnemeyGameObject"), 700, 200)   
-        //GameObject.instantiate(new ChargerGameObject("Charger2", "EnemeyGameObject"), 200, 600)   
+        GameObject.instantiate(new VeggieSmoothieItemGameObject("Veggie Smoothie", "Item"), 500, 500)
     }
 }
 
